@@ -4,15 +4,31 @@
 <html>
 <!--Заголовок "8 марта"-->
 <head>
-    <!--Пишем текст заголовка в параграф <p1>, делаем его цвет коричневым, отступ от левой границы на 500px и размер шрифта 450%-->
-    <p1 style="color: brown;  margin-left: 500px; font-size:450%;"> 8 марта </p1> 
+    <!--Пишем текст заголовка <h1>, делаем его цвет коричневым, отступ от левой границы на 500px и размер шрифта 450%-->
+    <h1 style="color: brown;  margin-left: 500px; font-size:450%;"> 8 марта </h1> 
 </head>
 <!--Название вкладки-->
 <title>ОАО "8 марта"</title>
-
 <!--Содержимое сайта-->
-<!--Задаём цвет фона страницы-->
-<body style="background-color:khaki">
+<body>
+    <!--Задаём параграф 1 уровня, задаём ему цвет-->
+    <p1 id="1" style="color:blue; font-size:450%;">Акции! Скидки! Выгодные цены! Покупай! </p1>
+    <!--Подключаем библиотеку jquery для взаимодействия JavaScript и HTML-->
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <!--Пишем код на JavaScript-->
+    <!--Функция moveHeading двигает заголовок <p1> влево. leftOffset - его начальная позиция-->
+    <script>
+        var leftOffset = -1500;
+        var moveHeading = function () {
+            $("#1").offset({left:leftOffset});
+            leftOffset++;
+        if (leftOffset > 1500) { 
+            leftOffset = -1500;
+        };     
+    };  
+    setInterval(moveHeading, 3);
+    </script>    
+    </script> 
     <!--Делаем таблицу-->
     <table>
         <!--Заголовок таблицы-->
@@ -27,10 +43,35 @@
                         <img style="width:100%" src='https://s8.hostingkartinok.com/uploads/images/2021/04/a3727220722989232bc641d71b3bf67b.jpg'  alt='Лого.jpg'/>
                     </a>
                 </th>
-                <!--Добавляем в ячейки параграфы <p2> и аббревиатуры <abbr>, которые будут выскакивать при наведении на текст параграфов. Задаём параграфам левый отступ 100px и размер шрифта 200%-->
-                <th><p2 style="margin-left: 100px; font-size:200%; "><abbr title="Нижнее белье, одежда для дома, повседневная одежда, термобелье, изделия из льносодержащей пряжи.">Трикотажные изделия</abbr></p2></th>
-                <th><p2 style="margin-left: 100px; font-size:200%;"><abbr title="Классические, спортивные, теплые, молодежные.">Носки</abbr></p2></th>
-                <th><p2 style="margin-left: 100px; font-size:200%;"><abbr title="Кулирные, интерлочные, ластичные, футерованные, жаккардовые, поперечнополосатые.">Полотна</abbr></p2></th>
+                <!--Добавляем в ячейки параграфы <p2> и поля со списком <select>, которые будут содержать поля выбора <option>. Задаём параграфам левый отступ 100px и размер шрифта 200%-->
+                <th><p2 style="margin-left: 100px; font-size:200%;">Трикотажные изделия</p2>
+                    <p3 style="margin-left: 100px; font-size:200%;"><select name="Трикотажные изделия">
+                        <option value="s1">Нижнее белье</option>
+                        <option value="s2">одежда для дома</option>
+                        <option value="s3">повседневная одежда</option>
+                        <option value="s4">термобелье</option>
+                        <option value="s5">изделия из льносодержащей пряжи</option>
+                    </select></p3>
+                </th> 
+                <th><p2 style="margin-left: 100px; font-size:200%;">Носки</p2>
+                    <p3 style="margin-left: 100px; font-size:200%;"><select name="Носки">
+                        <option value="s1">Классические</option>
+                        <option value="s2">спортивны</option>
+                        <option value="s3">тёплые</option>
+                        <option value="s4">термобелье</option>
+                        <option value="s5">молодёжные</option>
+                    </select></p3>
+                </th>
+                <th><p2 style="margin-left: 100px; font-size:200%;">Полотна</p2>
+                    <p3 style="margin-left: 100px; font-size:200%;"><select name="Полотна">
+                        <option value="s1">Кулирные</option>
+                        <option value="s2">интерлочные</option>
+                        <option value="s3">ластичные</option>
+                        <option value="s4">футерованные</option>
+                        <option value="s5">жаккардовые</option>
+                        <option value="s5">поперечнополосатые</option>
+                    </select></p3>
+                </th>
             </tr>
         </thead>
     </table>
